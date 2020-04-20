@@ -1,0 +1,11 @@
+C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\bin\Debug\netcoreapp2.1\IndianStatesCensus.deps.json
+C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\bin\Debug\netcoreapp2.1\IndianStatesCensus.runtimeconfig.json
+C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\bin\Debug\netcoreapp2.1\IndianStatesCensus.runtimeconfig.dev.json
+C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\bin\Debug\netcoreapp2.1\IndianStatesCensus.dll
+C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\bin\Debug\netcoreapp2.1\IndianStatesCensus.pdb
+C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\obj\Debug\netcoreapp2.1\IndianStatesCensus.csprojAssemblyReference.cache
+C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\obj\Debug\netcoreapp2.1\IndianStatesCensus.csproj.CoreCompileInputs.cache
+C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\obj\Debug\netcoreapp2.1\IndianStatesCensus.AssemblyInfoInputs.cache
+C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\obj\Debug\netcoreapp2.1\IndianStatesCensus.AssemblyInfo.cs
+C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\obj\Debug\netcoreapp2.1\IndianStatesCensus.dll
+C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\obj\Debug\netcoreapp2.1\IndianStatesCensus.pdb
