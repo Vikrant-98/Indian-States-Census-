@@ -6,6 +6,9 @@ namespace IndianStatesCensus
 {
     class CSVStateCensus
     {
+        /// <summary>
+        /// Constructor created to pass CSVState Census 
+        /// </summary>
         public CSVStateCensus()
         {
             IndianStatesCensus csvData = new IndianStatesCensus();

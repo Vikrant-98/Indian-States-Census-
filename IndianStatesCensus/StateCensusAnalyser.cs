@@ -6,6 +6,9 @@ namespace IndianStatesCensus
 {
     class StateCensusAnalyser
     {
+        /// <summary>
+        /// Constructor created to load the State Census Data file
+        /// </summary>
         public StateCensusAnalyser()
         {
             IndianStatesCensus states = new IndianStatesCensus();

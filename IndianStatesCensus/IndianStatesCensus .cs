@@ -5,15 +5,20 @@ using System.Linq;
 
 namespace IndianStatesCensus
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class IndianStatesCensus
     {
         static void Main(string[] args)
         {
-            CSVStateCensus obj = new CSVStateCensus();
+            
         }
+        /// <summary>
+        /// String array created to store the records 
+        /// Searching the data entry from given file path
+        /// </summary>
+        /// <param name="searchTerm"></param>
+        /// <param name="filepath"></param>
+        /// <param name="positionOfSearchTerm"></param>
+        /// <returns></returns>
         public string[] StateCensus(string searchTerm,string filepath,int positionOfSearchTerm)
         {
             positionOfSearchTerm--;
