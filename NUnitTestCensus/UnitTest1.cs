@@ -28,5 +28,11 @@ namespace Tests
             StateCensusAnalyser matches = new StateCensusAnalyser();
             Assert.AreEqual("File Contains invalid records", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
         }
+        [Test]
+        public void TEST4()
+        {
+            StateCensusAnalyser matches = new StateCensusAnalyser();
+            Assert.AreEqual("There is no Such Files", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.txt"));
+        }
     }
 }
