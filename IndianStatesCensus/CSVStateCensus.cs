@@ -26,7 +26,7 @@ namespace IndianStatesCensus
                     String[] entries = line.Split(",");
                     if (count == 0 && (entries[0] != "SrNo" || entries[1] != "State" || entries[2] != "TIN" || entries[3] != "StateCode"))
                     {
-                        throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_HEADERS, "File contains invalid Headers");
+                        throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_HEADERS, "File Contains invalid Headers");
                     }
                     if (entries.Length == 4)
                     {
