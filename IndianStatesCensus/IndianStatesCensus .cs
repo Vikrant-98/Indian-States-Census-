@@ -1,62 +1,26 @@
 ﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace IndianStatesCensus
 {
-    public class IndianStatesCensus
-    {
+    class IndianStatesCensus
+    {    /// <summary>
+         /// Main method read the data from file
+         /// </summary>
+         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            
+            CSVStateCensus obj = new CSVStateCensus();
+            Console.WriteLine(obj.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv"));
         }
-        /// <summary>
-        /// String array created to store the records 
-        /// Searching the data entry from given file path
-        /// </summary>
-        /// <param name="searchTerm"></param>
-        /// <param name="filepath"></param>
-        /// <param name="positionOfSearchTerm"></param>
-        /// <returns></returns>
-        public string[] StateCensus(string searchTerm,string filepath,int positionOfSearchTerm)
+    }
+    public class IndianStatesCensusException : Exception
+    {
+        public enum ExceptionType
         {
-            positionOfSearchTerm--;
-            string[] recordNotFound = { "RecordNotFound" };
-            try
-            {
-                String[] line = System.IO.File.ReadAllLines(filepath);
-                for (int i = 0; i < line.Length; i++)
-                {
-                    String[] entrie = line[i].Split(',');
-                    if (Record(searchTerm,entrie,positionOfSearchTerm))
-                    {
-                        Console.WriteLine("Record Found");
-                        return entrie;
-                    }
-                }
-                return recordNotFound;
-            }
-            catch(Exception ex)
-            {
-                return recordNotFound;
-                throw new ApplicationException("There is no such data : ",ex);
-            }
+            ENTERED_NULL, INVALID_RECORDS, NO_SUCH_FILE, NO_SUCH_METHOD, INVALID_HEADERS, NO_SUCH_FIELD, OBJECT_CREATION_ISSUE
         }
-        /// <summary>
-        ///  Check weather the records are matching
-        /// </summary>
-        /// <param name="searchTerm"></param>
-        /// <param name="record"></param>
-        /// <param name="positionOfSearchTerm"></param>
-        /// <returns></returns>
-        public bool Record(string searchTerm,string[] record, int positionOfSearchTerm)
+        public IndianStatesCensusException(ExceptionType type, String message) : base(message)
         {
-            if (record[positionOfSearchTerm].Equals(searchTerm))
-            {
-                return true;
-            }
-            return false;
         }
     }
 }
