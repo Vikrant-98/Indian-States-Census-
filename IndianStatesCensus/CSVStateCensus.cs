@@ -15,7 +15,7 @@ namespace IndianStatesCensus
                 string FILEPATH = @"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv";
                 if (filepath != FILEPATH)
                 {
-                    throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.NO_SUCH_FILE, "There is no Such Files");
+                    throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.NO_SUCH_FILE, "There is No Such Files");
                 }
 
                 List<Entries> states = new List<Entries>();
