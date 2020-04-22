@@ -20,7 +20,7 @@ namespace Tests
         public void Test2()
         {
             StateCensusAnalyser matches = new StateCensusAnalyser();
-            Assert.AreEqual("HAPPY", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.txt"));
+            Assert.AreEqual("There is no Such Files", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.txt"));
         }
     }
 }
