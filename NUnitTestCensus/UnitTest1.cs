@@ -20,7 +20,7 @@ namespace Tests
         public void Testcase1_2()
         {
             StateCensusAnalyser matches = new StateCensusAnalyser();
-            Assert.AreEqual("There is no Such Files", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.txt"));
+            Assert.AreEqual("There is No Such Files", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.txt"));
         }
         [Test]
         public void Testcase1_3()
@@ -32,7 +32,7 @@ namespace Tests
         public void Testcase1_4()
         {
             StateCensusAnalyser matches = new StateCensusAnalyser();
-            Assert.AreEqual("There is no Such Files", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.txt"));
+            Assert.AreEqual("There is No Such Files", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.txt"));
         }
         [Test]
         public void Testcase1_5()
@@ -45,6 +45,12 @@ namespace Tests
         {
             CSVStateCensus matches = new CSVStateCensus();
             Assert.AreEqual("HAPPY", matches.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv"));
+        }
+        [Test]
+        public void Testcase2_2()
+        {
+            CSVStateCensus matches = new CSVStateCensus();
+            Assert.AreEqual("There is No Such Files", matches.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.txt"));
         }
     }
 }
