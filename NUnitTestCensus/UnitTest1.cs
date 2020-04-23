@@ -58,5 +58,11 @@ namespace Tests
             CSVStateCensus matches = new CSVStateCensus();
             Assert.AreEqual("File Contains Invalid Records", matches.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv"));
         }
+        [Test]
+        public void Testcase2_4()
+        {
+            CSVStateCensus matches = new CSVStateCensus();
+            Assert.AreEqual("There is No Such Files", matches.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.txt"));
+        }
     }
 }
