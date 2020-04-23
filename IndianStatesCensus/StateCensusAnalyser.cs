@@ -15,17 +15,17 @@ namespace IndianStatesCensus
                 string FILEPATH = @"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv";
                 if (filepath != FILEPATH)
                 {
-                    throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.NO_SUCH_FILE, "There is no Such Files");
+                    throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.NO_SUCH_FILE, "There is No Such Files");
                 }
 
-                List<Entries> people = new List<Entries>();
+                List<Entries> states = new List<Entries>();
                 List<string> lines = File.ReadAllLines(filepath).ToList();
                 foreach (string line in lines)
                 {
                     String[] entries = line.Split(",");
                     if (count == 0 && (entries[0] != "State" || entries[1] != "Population" || entries[2] != "AreaInSqKm" || entries[3] != "DensityPerSqKm"))
                     {
-                        throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_HEADERS, "File contains invalid Headers");
+                        throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_HEADERS, "File Contains Invalid Headers");
                     }
                     if (entries.Length == 4)
                     {
@@ -36,13 +36,17 @@ namespace IndianStatesCensus
                         newEntry.AreaInSqKm = entries[2];
                         newEntry.DensityPerSqKm = entries[3];
 
-                        people.Add(newEntry);
+                        states.Add(newEntry);
                         count++;
                     }
                     else
                     {
-                        throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains invalid records");
+                        throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains Invalid Records");
                     }
+                }
+                foreach (var state in states)
+                {
+                    Console.WriteLine($"{ state.State } { state.Population } { state.AreaInSqKm } { state.DensityPerSqKm }");
                 }
                 return "HAPPY";
             }
