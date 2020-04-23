@@ -11,29 +11,35 @@ namespace Tests
         }
 
         [Test]
-        public void Test1()
+        public void Testcase1()
         {
             StateCensusAnalyser matches = new StateCensusAnalyser();
             Assert.AreEqual("HAPPY",matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
         }
         [Test]
-        public void Test2()
+        public void Testcase2()
         {
             StateCensusAnalyser matches = new StateCensusAnalyser();
             Assert.AreEqual("There is no Such Files", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.txt"));
         }
         [Test]
-        public void Test3()
+        public void Testcase3()
         {
             StateCensusAnalyser matches = new StateCensusAnalyser();
             Assert.AreEqual("File Contains invalid records", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
         }
         [Test]
-        public void Test4()
+        public void Testcase4()
         {
             StateCensusAnalyser matches = new StateCensusAnalyser();
             Assert.AreEqual("There is no Such Files", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.txt"));
         }
-        
+        [Test]
+        public void Testcase5()
+        {
+            StateCensusAnalyser matches = new StateCensusAnalyser();
+            Assert.AreEqual("File contains invalid Headers", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
+        }
+
     }
 }
