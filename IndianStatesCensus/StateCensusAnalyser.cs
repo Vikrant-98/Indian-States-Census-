@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace IndianStatesCensus
 {
-    class StateCensusAnalyser
+    public class StateCensusAnalyser
     {
         public string StateCensusAnalyzer(string filepath)
         {
@@ -41,7 +41,7 @@ namespace IndianStatesCensus
                     }
                     else
                     {
-                        throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File contains invalid records");
+                        throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains invalid records");
                     }
                 }
                 return "HAPPY";
