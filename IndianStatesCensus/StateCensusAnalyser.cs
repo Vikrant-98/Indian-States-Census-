@@ -5,7 +5,12 @@ using System.Linq;
 
 namespace IndianStatesCensus
 {
-    public class StateCensusAnalyser
+    interface States
+    {
+        string StateCensusAnalyzer(string filepath);
+    }
+
+    public class StateCensusAnalyser : States
     {
         public string StateCensusAnalyzer(string filepath)
         {
