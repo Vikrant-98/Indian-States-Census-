@@ -5,12 +5,8 @@ using System.Linq;
 
 namespace IndianStatesCensus
 {
-    interface States
-    {
-        string StateCensusAnalyzer(string filepath);
-    }
-
-    public class StateCensusAnalyser : States
+    
+    public class StateCensusAnalyser : CSV_Builder_State 
     {
         public string StateCensusAnalyzer(string filepath)
         {

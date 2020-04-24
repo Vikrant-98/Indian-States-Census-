@@ -5,12 +5,7 @@ using System.Linq;
 
 namespace IndianStatesCensus
 {
-    interface StatesCode
-    {
-        string CSVStatesCensus(string filepath);
-    }
-
-    public class CSVStateCensus : StatesCode
+    public class CSVStateCensus : CSV_Builder_StateCode
     {
         public string CSVStatesCensus(string filepath)
         {
