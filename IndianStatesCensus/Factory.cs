@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace IndianStatesCensus
 {
@@ -15,10 +16,7 @@ namespace IndianStatesCensus
             foreach (string line in lines)
             {
                 String[] entries = line.Split(",");
-                if (count == 0 && (entries[0] != "State" || entries[1] != "Population" || entries[2] != "AreaInSqKm" || entries[3] != "DensityPerSqKm"))
-                {
-                    throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_HEADERS, "File Contains Invalid Headers");
-                }
+                
                 if (entries.Length == 4)
                 {
                     Entries newEntry = new Entries();
@@ -36,10 +34,9 @@ namespace IndianStatesCensus
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains Invalid Records");
                 }
             }
-            foreach (var state in states)
-            {
-                Console.WriteLine($"{ state.State } { state.Population } { state.AreaInSqKm } { state.DensityPerSqKm }");
-            }
+            var info = states;
+            var str = JsonConvert.SerializeObject(info,Formatting.Indented);
+            Console.WriteLine(str);
         }
         public void StateCodeEntry(string filepath,int count)
         {
@@ -49,10 +46,6 @@ namespace IndianStatesCensus
             foreach (string line in lines)
             {
                 String[] entries = line.Split(",");
-                if (count == 0 && (entries[0] != "SrNo" || entries[1] != "State" || entries[2] != "TIN" || entries[3] != "StateCode"))
-                {
-                    throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_HEADERS, "File Contains Invalid Headers");
-                }
                 if (entries.Length == 4)
                 {
                     Entries newEntry = new Entries();
@@ -70,10 +63,9 @@ namespace IndianStatesCensus
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains Invalid Records");
                 }
             }
-            foreach (var state in states)
-            {
-                Console.WriteLine($"{ state.SrNo } { state.State } { state.TIN } { state.StateCode }");
-            }
+            var info = states;
+            var str = JsonConvert.SerializeObject(info,Formatting.Indented);
+            Console.WriteLine(str);
         }
     }
 }
