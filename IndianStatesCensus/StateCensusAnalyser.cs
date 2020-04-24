@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace IndianStatesCensus
 {
-    
     public class StateCensusAnalyser : CSV_Builder_State 
     {
+        Factory factory = new Factory();
         public string StateCensusAnalyzer(string filepath)
         {
             try
@@ -18,37 +18,7 @@ namespace IndianStatesCensus
                 {
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.NO_SUCH_FILE, "There is No Such Files");
                 }
-
-                List<Entries> states = new List<Entries>();
-                List<string> lines = File.ReadAllLines(filepath).ToList();
-                foreach (string line in lines)
-                {
-                    String[] entries = line.Split(",");
-                    if (count == 0 && (entries[0] != "State" || entries[1] != "Population" || entries[2] != "AreaInSqKm" || entries[3] != "DensityPerSqKm"))
-                    {
-                        throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_HEADERS, "File Contains Invalid Headers");
-                    }
-                    if (entries.Length == 4)
-                    {
-                        Entries newEntry = new Entries();
-
-                        newEntry.State = entries[0];
-                        newEntry.Population = entries[1];
-                        newEntry.AreaInSqKm = entries[2];
-                        newEntry.DensityPerSqKm = entries[3];
-
-                        states.Add(newEntry);
-                        count++;
-                    }
-                    else
-                    {
-                        throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains Invalid Records");
-                    }
-                }
-                foreach (var state in states)
-                {
-                    Console.WriteLine($"{ state.State } { state.Population } { state.AreaInSqKm } { state.DensityPerSqKm }");
-                }
+                factory.StateEntry(filepath,count);
                 return "HAPPY";
             }
             catch (IndianStatesCensusException message)
