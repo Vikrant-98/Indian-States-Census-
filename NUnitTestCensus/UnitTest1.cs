@@ -85,5 +85,19 @@ namespace Tests
             string actual = factory.StateEntry(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv", 0, 29);
             Assert.AreEqual("West Bengal", actual);
         }
+        [Test]
+        public void Testcase4()
+        {
+            Factory factory = new Factory();
+            string actual = factory.StateCodeEntry(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv", 0, 1);
+            Assert.AreEqual("Andhra Pradesh", actual);
+        }
+        [Test]
+        public void Testcase4_1()
+        {
+            Factory factory = new Factory();
+            string actual = factory.StateCodeEntry(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv", 0, 37);
+            Assert.AreEqual("West Bengal", actual);
+        }
     }
 }
