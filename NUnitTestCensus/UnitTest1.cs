@@ -14,7 +14,7 @@ namespace Tests
         public void Testcase1_1()
         {
             StateCensusAnalyser matches = new StateCensusAnalyser();
-            Assert.AreEqual("HAPPY",matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
+            Assert.AreEqual("HAPPY", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
         }
         [Test]
         public void Testcase1_2()
@@ -26,7 +26,7 @@ namespace Tests
         public void Testcase1_3()
         {
             StateCensusAnalyser matches = new StateCensusAnalyser();
-            Assert.AreEqual("File Contains Invalid records", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
+            Assert.AreEqual("File Contains Invalid Records", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
         }
         [Test]
         public void Testcase1_4()
@@ -67,8 +67,23 @@ namespace Tests
         [Test]
         public void Testcase2_5()
         {
+
             CSVStateCensus matches = new CSVStateCensus();
             Assert.AreEqual("File Contains Invalid Headers", matches.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv"));
+        }
+        [Test]
+        public void Testcase3()
+        {
+            Factory factory = new Factory();
+            string actual = factory.StateEntry(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv",0, 1);
+            Assert.AreEqual("Arunachal Pradesh", actual);
+        }
+        [Test]
+        public void Testcase3_1()
+        {
+            Factory factory = new Factory();
+            string actual = factory.StateEntry(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv", 0, 29);
+            Assert.AreEqual("West Bengal", actual);
         }
     }
 }
