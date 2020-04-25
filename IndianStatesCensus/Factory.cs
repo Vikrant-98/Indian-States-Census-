@@ -61,7 +61,7 @@ namespace IndianStatesCensus
             
             return info[index].State;
         }
-        public void StateCodeEntry(string filepath,int count,int index)
+        public string StateCodeEntry(string filepath,int count,int index)
         {
             List<Entries> states = new List<Entries>();
             List<string> lines = File.ReadAllLines(filepath).ToList();
@@ -91,7 +91,8 @@ namespace IndianStatesCensus
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains Invalid Records");
                 }
             }
-            //Console.WriteLine(SortedInfo(count,index,states));
+            Console.WriteLine(SortedInfo(count, index, states));
+            return SortedInfo(count, index, states);
         }
     }
 }
