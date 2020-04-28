@@ -8,6 +8,7 @@ namespace IndianStatesCensus
 {
     public class Factory
     {
+        Sort sort = new Sort();
         public string StateEntry(string filepath, int count, int index)
         {
             List<Entries> states = new List<Entries>();
@@ -44,92 +45,8 @@ namespace IndianStatesCensus
             //Console.WriteLine(SortedInfoPopulation(count, index, states));
             // Console.WriteLine(SortedInfo(count, index, states));
 
-            return SortedInfoDensity(count, index, states);
+            return sort.SortedInfoDensity(count, index, states);
         }
-        public string SortedInfo(int count, int index, List<Entries> entries)
-        {
-            var info = entries;
-            var temp = info[1];
-            for (int i = 1; i < count; i++)
-            {
-                for (int j = i + 1; j < count; j++)
-                {
-                    if (info[i].State.CompareTo(info[j].State) > 0)
-                    {
-                        temp = info[i];
-                        info[i] = info[j];
-                        info[j] = temp;
-                    }
-                }
-            }
-            string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
-
-            return info[index].State;
-        }
-
-        public string SortedInfoPopulation(int count, int index, List<Entries> entries)
-        {
-            var info = entries;
-            var temp = info[1];
-            int countStates = 0;
-            for (int i = 1; i < count; i++)
-            {
-                for (int j = i + 1; j < count; j++)
-                {
-                    if (int.Parse(info[i].Population) < int.Parse(info[j].Population))
-                    {
-                        temp = info[i];
-                        info[i] = info[j];
-                        info[j] = temp;
-                    }
-                    countStates++;
-                }
-            }
-            string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
-            Console.WriteLine(countStates);
-            String str1 = countStates.ToString();
-            return str1;
-        }
-        public string SortedInfoDensity(int count, int index, List<Entries> entries)
-        {
-            var info = entries;
-            var temp = info[1];
-            for (int i = 1; i < count; i++)
-            {
-                for (int j = i + 1; j < count; j++)
-                {
-                    if (int.Parse(info[i].DensityPerSqKm) < int.Parse(info[j].DensityPerSqKm))
-                    {
-                        temp = info[i];
-                        info[i] = info[j];
-                        info[j] = temp;
-                    }
-                }
-            }
-            string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
-            return str;
-        }
-        public string SortedInfoArea(int count, int index, List<Entries> entries)
-        {
-            var info = entries;
-            var temp = info[1];
-            for (int i = 1; i < count; i++)
-            {
-                for (int j = i + 1; j < count; j++)
-                {
-                    if (int.Parse(info[i].AreaInSqKm) < int.Parse(info[j].AreaInSqKm))
-                    {
-                        temp = info[i];
-                        info[i] = info[j];
-                        info[j] = temp;
-                    }
-                }
-            }
-            string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
-
-            return str;
-        }
-
         public string StateCodeEntry(string filepath, int count, int index)
         {
             List<Entries> states = new List<Entries>();
@@ -160,8 +77,10 @@ namespace IndianStatesCensus
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains Invalid Records");
                 }
             }
+            
             //Console.WriteLine(SortedInfoPopulation(count, index, states));
-            return SortedInfo(count, index, states);
+            
+            return sort.SortedInfo(count, index, states);
         }
         public string US_CensusData(string filepath, int count, int index)
         {
