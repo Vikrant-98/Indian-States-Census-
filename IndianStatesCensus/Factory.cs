@@ -64,9 +64,9 @@ namespace IndianStatesCensus
         public string StateCodeEntry(string filepath,int count,int index)
         {
             List<Entries> states = new List<Entries>();
-            List<string> lines = File.ReadAllLines(filepath).ToList();
+            List<string> Map = File.ReadAllLines(filepath).ToList();
             
-            foreach (string line in lines)
+            foreach (string line in Map)
             {
                 String[] entries = line.Split(",");
                 if (count == 0 && (entries[0] != "SrNo" || entries[1] != "State" || entries[2] != "TIN" || entries[3] != "StateCode"))
