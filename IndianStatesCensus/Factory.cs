@@ -38,11 +38,12 @@ namespace IndianStatesCensus
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains Invalid Records");
                 }
             }
-            
+
+            Console.WriteLine(SortedInfoDensity(count,index,states));
             //Console.WriteLine(SortedInfoPopulation(count, index, states));
             // Console.WriteLine(SortedInfo(count, index, states));
-            
-            return SortedInfoPopulation(count,index,states);
+
+            return SortedInfoDensity(count,index,states);
         }
         public string SortedInfo(int count,int index,List<Entries> entries)
         {
@@ -87,6 +88,25 @@ namespace IndianStatesCensus
             Console.WriteLine(countStates);
             String str1 = countStates.ToString();
             return str1;
+        }
+        public string SortedInfoDensity(int count, int index, List<Entries> entries)
+        {
+            var info = entries;
+            var temp = info[1];
+            for (int i = 1; i < count; i++)
+            {
+                for (int j = i + 1; j < count; j++)
+                {
+                    if (int.Parse(info[i].DensityPerSqKm) < int.Parse(info[j].DensityPerSqKm))
+                    {
+                        temp = info[i];
+                        info[i] = info[j];
+                        info[j] = temp;
+                    }
+                }
+            }
+            string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
+            return str;
         }
 
         public string StateCodeEntry(string filepath,int count,int index)
