@@ -11,9 +11,9 @@ namespace IndianStatesCensus
         public string StateEntry(string filepath, int count,int index)
         {
             List<Entries> states = new List<Entries>();
-            List<string> lines = File.ReadAllLines(filepath).ToList();
+            List<string> Map = File.ReadAllLines(filepath).ToList();
            
-            foreach (string line in lines)
+            foreach (string line in Map)
             {
                 String[] entries = line.Split(",");
                 if (count == 0 && (entries[0] != "State" || entries[1] != "Population" || entries[2] != "AreaInSqKm" || entries[3] != "DensityPerSqKm"))
@@ -38,7 +38,7 @@ namespace IndianStatesCensus
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains Invalid Records");
                 }
             }
-            Console.WriteLine(SortedInfo(count, index, states));
+           // Console.WriteLine(SortedInfo(count, index, states));
             return SortedInfo(count,index,states);
         }
         public string SortedInfo(int count,int index,List<Entries> entries)
@@ -91,7 +91,7 @@ namespace IndianStatesCensus
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains Invalid Records");
                 }
             }
-            Console.WriteLine(SortedInfo(count, index, states));
+            //Console.WriteLine(SortedInfo(count, index, states));
             return SortedInfo(count, index, states);
         }
     }

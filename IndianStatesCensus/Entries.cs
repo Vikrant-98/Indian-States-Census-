@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace IndianStatesCensus
 {
@@ -25,15 +23,6 @@ namespace IndianStatesCensus
 
         [JsonProperty("StateCode", NullValueHandling = NullValueHandling.Ignore)]
         public string StateCode { get; set; }
-
-        internal int compareTo(Entries entries)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static implicit operator List<object>(Entries v)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
