@@ -9,10 +9,13 @@ namespace IndianStatesCensus
          /// <param name="args"></param>
         static void Main(string[] args)
         {
-            StateCensusAnalyser states = new StateCensusAnalyser();
-            Console.WriteLine(states.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
+            //StateCensusAnalyser states = new StateCensusAnalyser();
+            //Console.WriteLine(states.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
             //CSVStateCensus statescode = new CSVStateCensus();
             //Console.WriteLine(statescode.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv"));
+            US_CensusData US_states = new US_CensusData();
+            Console.WriteLine(US_states.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\USCensusData.csv"));
+
         }
     }
     public class IndianStatesCensusException : Exception

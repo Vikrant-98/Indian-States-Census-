@@ -8,11 +8,11 @@ namespace IndianStatesCensus
 {
     public class Factory
     {
-        public string StateEntry(string filepath, int count,int index)
+        public string StateEntry(string filepath, int count, int index)
         {
             List<Entries> states = new List<Entries>();
             List<string> Map = File.ReadAllLines(filepath).ToList();
-           
+
             foreach (string line in Map)
             {
                 String[] entries = line.Split(",");
@@ -39,14 +39,14 @@ namespace IndianStatesCensus
                 }
             }
 
-            Console.WriteLine(SortedInfoArea(count, index, states));
+            //Console.WriteLine(SortedInfoArea(count, index, states));
             //Console.WriteLine(SortedInfoDensity(count, index, states));
             //Console.WriteLine(SortedInfoPopulation(count, index, states));
             // Console.WriteLine(SortedInfo(count, index, states));
 
-            return SortedInfoDensity(count,index,states);
+            return SortedInfoDensity(count, index, states);
         }
-        public string SortedInfo(int count,int index,List<Entries> entries)
+        public string SortedInfo(int count, int index, List<Entries> entries)
         {
             var info = entries;
             var temp = info[1];
@@ -63,7 +63,7 @@ namespace IndianStatesCensus
                 }
             }
             string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
-            
+
             return info[index].State;
         }
 
@@ -71,12 +71,12 @@ namespace IndianStatesCensus
         {
             var info = entries;
             var temp = info[1];
-            int countStates=0;
+            int countStates = 0;
             for (int i = 1; i < count; i++)
             {
                 for (int j = i + 1; j < count; j++)
                 {
-                    if ( int.Parse(info[i].Population) < int.Parse(info[j].Population))
+                    if (int.Parse(info[i].Population) < int.Parse(info[j].Population))
                     {
                         temp = info[i];
                         info[i] = info[j];
@@ -130,11 +130,11 @@ namespace IndianStatesCensus
             return str;
         }
 
-        public string StateCodeEntry(string filepath,int count,int index)
+        public string StateCodeEntry(string filepath, int count, int index)
         {
             List<Entries> states = new List<Entries>();
             List<string> Map = File.ReadAllLines(filepath).ToList();
-            
+
             foreach (string line in Map)
             {
                 String[] entries = line.Split(",");
@@ -162,6 +162,45 @@ namespace IndianStatesCensus
             }
             //Console.WriteLine(SortedInfoPopulation(count, index, states));
             return SortedInfo(count, index, states);
+        }
+        public string US_CensusData(string filepath, int count, int index)
+        {
+            List<Entries> states = new List<Entries>();
+            List<string> Map = File.ReadAllLines(filepath).ToList();
+
+            foreach (string line in Map)
+            {
+                String[] entries = line.Split(",");
+                if (count == 0 && (entries[0] != "State Id" || entries[1] != "State" || entries[2] != "Population" || entries[3] != "Housing units" || entries[4] != "Total area" || entries[5] != "Water area" || entries[6] != "Land area" || entries[7] != "Population Density"|| entries[8] != "Housing Density"))
+                {
+                    throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_HEADERS, "File Contains Invalid Headers");
+                }
+                if (entries.Length == 9)
+                {
+                    Entries newEntry = new Entries
+                    {
+                        State_Id = entries[0],
+                        State = entries[1],
+                        Population = entries[2],
+                        Housing_units = entries[3],
+                        Total_area = entries[4],
+                        Water_area = entries[5],
+                        Land_area = entries[6],
+                        Population_Density = entries[7],
+                        Housing_Density = entries[8]
+                    };
+
+                    states.Add(newEntry);
+                    count++;
+                }
+                else
+                {
+                    throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains Invalid Records");
+                }
+            }
+            string str = JsonConvert.SerializeObject(states, Formatting.Indented);
+
+            return str;
         }
     }
 }
