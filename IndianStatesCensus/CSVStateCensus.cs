@@ -2,7 +2,7 @@
 
 namespace IndianStatesCensus
 {
-    public class CSVStateCensus : CSV_Builder_StateCode
+    public class CSVStateCensus : ICSV_Builder_StateCode
     {
         Factory factory = new Factory();
         public string CSVStatesCensus(string filepath)
@@ -15,7 +15,7 @@ namespace IndianStatesCensus
                 {
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.NO_SUCH_FILE, "There is No Such Files");
                 }
-                factory.StateCodeEntry(filepath,count,1);
+                Console.WriteLine(factory.StateCodeEntry(filepath,count,1));
                 return "HAPPY";
             }
             catch (IndianStatesCensusException message)

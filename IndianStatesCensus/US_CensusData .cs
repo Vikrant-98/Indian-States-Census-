@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace IndianStatesCensus
 {
-    public class US_CensusData
+    public class US_CensusData : ICSV_Builder_USA_State
     {
         Factory factory = new Factory();
         public string StateCensusAnalyzer(string filepath)

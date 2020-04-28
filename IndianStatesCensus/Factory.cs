@@ -40,10 +40,10 @@ namespace IndianStatesCensus
                 }
             }
 
-            //Console.WriteLine(sort.SortedInfoArea(count, index, states));
-            //Console.WriteLine(sort.SortedInfoDensity(count, index, states));
-            //Console.WriteLine(sort.SortedInfoPopulation(count, index, states));
-            //Console.WriteLine(sort.SortedInfo(count, index, states));
+            //return(sort.SortedInfoArea(count, index, states));
+            //return(sort.SortedInfoDensity(count, index, states));
+            return(sort.SortedInfoPopulation(count, index, states));
+            //return(sort.SortedInfo(count, index, states));
 
             return sort.SortedInfoDensity(count, index, states);
         }
@@ -118,9 +118,12 @@ namespace IndianStatesCensus
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains Invalid Records");
                 }
             }
-            //string str = JsonConvert.SerializeObject(states, Formatting.Indented);
+
             
-            return sort.SortedInfoPopulation(count, index, states);
+            //return(sort.SortedInfoPopulationDensity(count, index, states));
+            //return (sort.SortedInfoTotalArea(count, index, states));
+            //return(sort.SortedInfo(count, index, states));
+
         }
     }
 }
