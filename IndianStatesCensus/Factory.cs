@@ -38,14 +38,17 @@ namespace IndianStatesCensus
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains Invalid Records");
                 }
             }
-           // Console.WriteLine(SortedInfo(count, index, states));
-            return SortedInfo(count,index,states);
+            
+            //Console.WriteLine(SortedInfoPopulation(count, index, states));
+            // Console.WriteLine(SortedInfo(count, index, states));
+            
+            return SortedInfoPopulation(count,index,states);
         }
         public string SortedInfo(int count,int index,List<Entries> entries)
         {
             var info = entries;
             var temp = info[1];
-            for (int i = 0; i < count; i++)
+            for (int i = 1; i < count; i++)
             {
                 for (int j = i + 1; j < count; j++)
                 {
@@ -61,6 +64,31 @@ namespace IndianStatesCensus
             
             return info[index].State;
         }
+
+        public string SortedInfoPopulation(int count, int index, List<Entries> entries)
+        {
+            var info = entries;
+            var temp = info[1];
+            int countStates=0;
+            for (int i = 1; i < count; i++)
+            {
+                for (int j = i + 1; j < count; j++)
+                {
+                    if ( int.Parse(info[i].Population) < int.Parse(info[j].Population))
+                    {
+                        temp = info[i];
+                        info[i] = info[j];
+                        info[j] = temp;
+                    }
+                    countStates++;
+                }
+            }
+            string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
+            Console.WriteLine(countStates);
+            String str1 = countStates.ToString();
+            return str1;
+        }
+
         public string StateCodeEntry(string filepath,int count,int index)
         {
             List<Entries> states = new List<Entries>();
@@ -91,7 +119,7 @@ namespace IndianStatesCensus
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains Invalid Records");
                 }
             }
-            //Console.WriteLine(SortedInfo(count, index, states));
+            //Console.WriteLine(SortedInfoPopulation(count, index, states));
             return SortedInfo(count, index, states);
         }
     }
