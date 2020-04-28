@@ -56,9 +56,9 @@ namespace IndianStatesCensus
                 }
             }
             string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
-            Console.WriteLine(countStates);
-            String str1 = countStates.ToString();
-            return str1;
+            //Console.WriteLine(countStates);
+            //String str1 = countStates.ToString();
+            return str;
         }
         public string SortedInfoDensity(int count, int index, List<Entries> entries)
         {
