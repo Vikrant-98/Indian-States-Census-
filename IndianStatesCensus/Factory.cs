@@ -39,7 +39,7 @@ namespace IndianStatesCensus
                 }
             }
 
-            Console.WriteLine(SortedInfoDensity(count,index,states));
+            //Console.WriteLine(SortedInfoDensity(count, index, states));
             //Console.WriteLine(SortedInfoPopulation(count, index, states));
             // Console.WriteLine(SortedInfo(count, index, states));
 
