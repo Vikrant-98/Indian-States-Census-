@@ -78,7 +78,7 @@ namespace Tests
             Assert.AreEqual("Andhra Pradesh", actual);
         }
         [Test]
-        public void StateCodeinanalphabeticalorder_Last()
+        public void StateCodeiInAnalphAbeticalOrder_Last()
         {
             Factory factory = new Factory();
             string actual = factory.StateCodeEntry(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv", 0, 37);
