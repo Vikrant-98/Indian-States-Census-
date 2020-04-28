@@ -39,6 +39,7 @@ namespace IndianStatesCensus
                 }
             }
 
+            Console.WriteLine(SortedInfoArea(count, index, states));
             //Console.WriteLine(SortedInfoDensity(count, index, states));
             //Console.WriteLine(SortedInfoPopulation(count, index, states));
             // Console.WriteLine(SortedInfo(count, index, states));
@@ -106,6 +107,26 @@ namespace IndianStatesCensus
                 }
             }
             string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
+            return str;
+        }
+        public string SortedInfoArea(int count, int index, List<Entries> entries)
+        {
+            var info = entries;
+            var temp = info[1];
+            for (int i = 1; i < count; i++)
+            {
+                for (int j = i + 1; j < count; j++)
+                {
+                    if (int.Parse(info[i].AreaInSqKm) < int.Parse(info[j].AreaInSqKm))
+                    {
+                        temp = info[i];
+                        info[i] = info[j];
+                        info[j] = temp;
+                    }
+                }
+            }
+            string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
+
             return str;
         }
 
