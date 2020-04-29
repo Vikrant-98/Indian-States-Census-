@@ -4,7 +4,13 @@ namespace IndianStatesCensus
 {
     public class CSVStateCensus : ICSV_Builder_StateCode
     {
-        Factory factory = new Factory();
+        /// <summary>
+        /// Checking for exception by their types 
+        /// Passing filepath to factory class
+        /// Factory class returns output
+        /// </summary>
+        /// <param name="filepath"></param>
+        /// <returns></returns>
         public string CSVStatesCensus(string filepath)
         {
             try
@@ -15,16 +21,17 @@ namespace IndianStatesCensus
                 {
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.NO_SUCH_FILE, "There is No Such Files");
                 }
-                Console.WriteLine(factory.StateCodeEntry(filepath,count,1));
-                return "HAPPY";
+                Factory factory = new Factory();
+                Console.WriteLine(factory.StateCodeEntry(filepath,count,1));                //Return and Print Output
+                return "";
             }
             catch (IndianStatesCensusException message)
             {
-                return message.Message;
+                return message.Message;                                              //Invalid Valid Exception
             }
             catch (IndexOutOfRangeException message)
             {
-                return message.Message;
+                return message.Message;                                              //Out of range Exception
             }
         }
     }

@@ -2,13 +2,22 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Newtonsoft.Json;
 
 namespace IndianStatesCensus
 {
     public class Factory
     {
         Sort sort = new Sort();
+        /// <summary>
+        /// List creates to store the data and read file path send by India State Census class
+        /// Map the data to sort in perticular format
+        /// Store the input in array through object
+        /// Take India state and sort it in according format like alphabetic order
+        /// </summary>
+        /// <param name="filepath"></param>
+        /// <param name="count"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public string StateEntry(string filepath, int count, int index)
         {
             List<Entries> states = new List<Entries>();
@@ -39,14 +48,23 @@ namespace IndianStatesCensus
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_RECORDS, "File Contains Invalid Records");
                 }
             }
-
+            
             //return(sort.SortedInfoArea(count, index, states));
             //return(sort.SortedInfoDensity(count, index, states));
-            return(sort.SortedInfoPopulation(count, index, states));
+            return (sort.SortedInfoPopulation(count, index, states));
             //return(sort.SortedInfo(count, index, states));
-
-            return sort.SortedInfoDensity(count, index, states);
+            
         }
+        /// <summary>
+        /// List creates to store the data and read file path send by India State Census class
+        /// Map the data to sort in perticular format
+        /// Store the input in array through object
+        /// Take India state and sort it in according format like alphabetic order
+        /// </summary>
+        /// <param name="filepath"></param>
+        /// <param name="count"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public string StateCodeEntry(string filepath, int count, int index)
         {
             List<Entries> states = new List<Entries>();
@@ -82,6 +100,16 @@ namespace IndianStatesCensus
             
             return sort.SortedInfo(count, index, states);
         }
+        /// <summary>
+        /// List creates to store the data and read file path send by India State Census class
+        /// Store the input in array through object
+        /// Map the data to sort in perticular format
+        /// Take India state and sort it in according format like alphabetic order
+        /// </summary>
+        /// <param name="filepath"></param>
+        /// <param name="count"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public string US_CensusData(string filepath, int count, int index)
         {
             List<Entries> states = new List<Entries>();
@@ -120,7 +148,7 @@ namespace IndianStatesCensus
             }
 
             
-            //return(sort.SortedInfoPopulationDensity(count, index, states));
+            return(sort.SortedInfoPopulationDensity(count, index, states));
             //return (sort.SortedInfoTotalArea(count, index, states));
             //return(sort.SortedInfo(count, index, states));
 

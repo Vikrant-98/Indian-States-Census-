@@ -2,12 +2,15 @@
 
 namespace IndianStatesCensus
 {
+    /// <summary>
+    /// Get input and set it in perticular Tupples
+    /// </summary>
     public class Entries
     {
-
+       
         [JsonProperty("State", NullValueHandling = NullValueHandling.Ignore)]
         public string State { get; set; }
-
+        
         [JsonProperty("Population", NullValueHandling = NullValueHandling.Ignore)]
         public string Population { get; set; }
 

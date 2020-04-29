@@ -6,7 +6,6 @@ namespace IndianStatesCensus
     interface ICSV_Builder_State
     {
         string StateCensusAnalyzer(string filepath);
-
     }
     interface ICSV_Builder_StateCode
     {
@@ -15,10 +14,16 @@ namespace IndianStatesCensus
     interface ICSV_Builder_USA_State
     {
         string StateCensusAnalyzer(string filepath);
-
     }
     public class Sort
     {
+        /// <summary>
+        /// Sort in Alphabetic format
+        /// </summary>
+        /// <param name="count"></param>
+        /// <param name="index"></param>
+        /// <param name="entries"></param>
+        /// <returns></returns>
         public string SortedInfo(int count, int index, List<Entries> entries)
         {
             var info = entries;
@@ -37,7 +42,13 @@ namespace IndianStatesCensus
 
             return info[index].State;
         }
-
+        /// <summary>
+        /// Sort in Larget to Smallest Population
+        /// </summary>
+        /// <param name="count"></param>
+        /// <param name="index"></param>
+        /// <param name="entries"></param>
+        /// <returns></returns>
         public string SortedInfoPopulation(int count, int index, List<Entries> entries)
         {
             var info = entries;
@@ -55,10 +66,16 @@ namespace IndianStatesCensus
                 }
             }
             string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
-            //Console.WriteLine(countStates);
             //String str1 = countStates.ToString();
             return str;
         }
+        /// <summary>
+        /// Sort in Larget to Smallest as per Density
+        /// </summary>
+        /// <param name="count"></param>
+        /// <param name="index"></param>
+        /// <param name="entries"></param>
+        /// <returns></returns>
         public string SortedInfoDensity(int count, int index, List<Entries> entries)
         {
             var info = entries;
@@ -76,6 +93,13 @@ namespace IndianStatesCensus
             string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
             return str;
         }
+        /// <summary>
+        /// Sort in Larget to Smallest as per Polpualtion Density
+        /// </summary>
+        /// <param name="count"></param>
+        /// <param name="index"></param>
+        /// <param name="entries"></param>
+        /// <returns></returns>
         public string SortedInfoPopulationDensity(int count, int index, List<Entries> entries)
         {
             var info = entries;
@@ -93,6 +117,13 @@ namespace IndianStatesCensus
             string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
             return str;
         }
+        /// <summary>
+        /// Sort in Larget to Smallest as per Total Area
+        /// </summary>
+        /// <param name="count"></param>
+        /// <param name="index"></param>
+        /// <param name="entries"></param>
+        /// <returns></returns>
         public string SortedInfoTotalArea(int count, int index, List<Entries> entries)
         {
             var info = entries;
@@ -110,6 +141,13 @@ namespace IndianStatesCensus
             string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
             return str;
         }
+        /// <summary>
+        /// Sort in Larget to Smallest as per US Total Area
+        /// </summary>
+        /// <param name="count"></param>
+        /// <param name="index"></param>
+        /// <param name="entries"></param>
+        /// <returns></returns>
         public string SortedInfoArea(int count, int index, List<Entries> entries)
         {
             var info = entries;
@@ -128,16 +166,19 @@ namespace IndianStatesCensus
 
             return str;
         }
-
+        /// <summary>
+        /// Swaping the information in String array
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="i"></param>
+        /// <param name="j"></param>
         public void Swap(List<Entries> info,int i,int j)
         {
-            
             var temp = info[1];
 
             temp = info[i];
             info[i] = info[j];
             info[j] = temp;
-
         }
 
     }

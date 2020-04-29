@@ -13,13 +13,16 @@ namespace IndianStatesCensus
             //Console.WriteLine(states.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
             //CSVStateCensus statescode = new CSVStateCensus();
             //Console.WriteLine(statescode.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv"));
-            US_CensusData US_states = new US_CensusData();
-            Console.WriteLine(US_states.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\USCensusData.csv"));
+            //US_CensusData US_states = new US_CensusData();
+            //Console.WriteLine(US_states.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\USCensusData.csv"));
 
         }
     }
     public class IndianStatesCensusException : Exception
     {
+    /// <summary>
+    /// Type of Exceptions
+    /// </summary>
         public enum ExceptionType
         {
             INVALID_RECORDS, NO_SUCH_FILE, INVALID_HEADERS, NO_SUCH_FIELD
