@@ -9,7 +9,7 @@ namespace Tests
         public void GiventheStatesWhenAnalyseShouldRecordNumberOfRecordmatches()
         {
             StateCensusAnalyser matches = new StateCensusAnalyser();
-            Assert.AreEqual("HAPPY", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
+            Assert.AreEqual("", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
         }
         [Test]
         public void GiventheStateCensusCSVFileincorrectReturnscustomException()
@@ -34,7 +34,7 @@ namespace Tests
         public void GiventheStatesCodeWhenAnalyseShouldRecordNumberOfRecordmatches()
         {
             CSVStateCensus matches = new CSVStateCensus();
-            Assert.AreEqual("HAPPY", matches.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv"));
+            Assert.AreEqual("", matches.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv"));
         }
         [Test]
         public void Given_the_StateCode_CSV_File_incorrect_Returns_custom_Exception()
@@ -61,7 +61,7 @@ namespace Tests
         {
             Factory factory = new Factory();
             string actual = factory.StateEntry(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv",0, 1);
-            Assert.AreEqual("Arunachal Pradesh", actual);
+            Assert.AreEqual("Andhra Pradesh", actual);
         }
         [Test]
         public void Statealphabeticalorder_Last()
@@ -75,7 +75,7 @@ namespace Tests
         {
             Factory factory = new Factory();
             string actual = factory.StateCodeEntry(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv", 0, 1);
-            Assert.AreEqual("Andhra Pradesh", actual);
+            Assert.AreEqual("Andaman and Nicobar Islands", actual);
         }
         [Test]
         public void StateCodeiInAnalphAbeticalOrder_Last()
