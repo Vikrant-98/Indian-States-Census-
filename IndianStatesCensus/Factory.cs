@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Newtonsoft.Json;
 
 namespace IndianStatesCensus
 {
@@ -21,6 +20,7 @@ namespace IndianStatesCensus
                 {
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.INVALID_HEADERS, "File Contains Invalid Headers");
                 }
+                
                 if (entries.Length == 4)
                 {
                     Entries newEntry = new Entries
@@ -41,11 +41,11 @@ namespace IndianStatesCensus
             }
 
             //return(sort.SortedInfoArea(count, index, states));
-            //return(sort.SortedInfoDensity(count, index, states));
-            return(sort.SortedInfoPopulation(count, index, states));
-            //return(sort.SortedInfo(count, index, states));
-
-            return sort.SortedInfoDensity(count, index, states);
+            return(sort.SortedInfoDensity(count, index, states));
+            //return(sort.SortedInfoPopulation(count, index, states));
+            
+            //return (sort.SortedInfo(count, index, states));
+            
         }
         public string StateCodeEntry(string filepath, int count, int index)
         {
@@ -120,7 +120,7 @@ namespace IndianStatesCensus
             }
 
             
-            //return(sort.SortedInfoPopulationDensity(count, index, states));
+            return(sort.SortedInfoPopulationDensity(count, index, states));
             //return (sort.SortedInfoTotalArea(count, index, states));
             //return(sort.SortedInfo(count, index, states));
 

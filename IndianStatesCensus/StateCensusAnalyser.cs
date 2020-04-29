@@ -16,7 +16,7 @@ namespace IndianStatesCensus
                     throw new IndianStatesCensusException(IndianStatesCensusException.ExceptionType.NO_SUCH_FILE, "There is No Such Files");
                 }
                 Console.WriteLine(factory.StateEntry(filepath,count,1));
-                return "HAPPY";
+                return "";
             }
             catch (IndianStatesCensusException message)
             {

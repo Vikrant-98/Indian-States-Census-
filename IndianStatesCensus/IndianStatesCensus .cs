@@ -9,13 +9,23 @@ namespace IndianStatesCensus
          /// <param name="args"></param>
         static void Main(string[] args)
         {
-            //StateCensusAnalyser states = new StateCensusAnalyser();
-            //Console.WriteLine(states.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
-            //CSVStateCensus statescode = new CSVStateCensus();
-            //Console.WriteLine(statescode.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv"));
+            StateCensusAnalyser states = new StateCensusAnalyser();
+            string IndiaData = states.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv");
+            Console.WriteLine(IndiaData);
+            CSVStateCensus statescode = new CSVStateCensus();
+            Console.WriteLine(statescode.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv"));
             US_CensusData US_states = new US_CensusData();
-            Console.WriteLine(US_states.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\USCensusData.csv"));
+            string US_Data = US_states.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\USCensusData.csv");
+            Console.WriteLine(US_Data);
 
+            if (IndiaData.CompareTo(US_Data) > 0)
+            {
+                Console.WriteLine("Population density of India is More then US");
+            }
+            else
+            {
+                Console.WriteLine("Population density of US is More then India ");
+            }
         }
     }
     public class IndianStatesCensusException : Exception

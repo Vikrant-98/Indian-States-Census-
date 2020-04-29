@@ -6,7 +6,6 @@ namespace IndianStatesCensus
     interface ICSV_Builder_State
     {
         string StateCensusAnalyzer(string filepath);
-
     }
     interface ICSV_Builder_StateCode
     {
@@ -15,7 +14,6 @@ namespace IndianStatesCensus
     interface ICSV_Builder_USA_State
     {
         string StateCensusAnalyzer(string filepath);
-
     }
     public class Sort
     {
@@ -55,9 +53,9 @@ namespace IndianStatesCensus
                 }
             }
             string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
-            //Console.WriteLine(countStates);
-            //String str1 = countStates.ToString();
-            return str;
+   
+            string str1 = countStates.ToString();
+            return str1;
         }
         public string SortedInfoDensity(int count, int index, List<Entries> entries)
         {
@@ -67,13 +65,13 @@ namespace IndianStatesCensus
             {
                 for (int j = i + 1; j < count; j++)
                 {
-                    if (int.Parse(info[i].DensityPerSqKm) < int.Parse(info[j].DensityPerSqKm))
+                    if (double.Parse(info[i].DensityPerSqKm) < double.Parse(info[j].DensityPerSqKm))
                     {
                         Swap(info, i, j);
                     }
                 }
             }
-            string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
+            string str = JsonConvert.SerializeObject(entries[1].DensityPerSqKm, Formatting.Indented);
             return str;
         }
         public string SortedInfoPopulationDensity(int count, int index, List<Entries> entries)
@@ -90,7 +88,7 @@ namespace IndianStatesCensus
                     }
                 }
             }
-            string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
+            string str = JsonConvert.SerializeObject(entries[1].Population_Density, Formatting.Indented);
             return str;
         }
         public string SortedInfoTotalArea(int count, int index, List<Entries> entries)
