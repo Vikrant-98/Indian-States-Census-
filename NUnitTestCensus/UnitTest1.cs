@@ -9,7 +9,7 @@ namespace Tests
         public void GiventheStatesWhenAnalyseShouldRecordNumberOfRecordmatches()
         {
             StateCensusAnalyser matches = new StateCensusAnalyser();
-            Assert.AreEqual("HAPPY", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
+            Assert.AreEqual("", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
         }
         [Test]
         public void GiventheStateCensusCSVFileincorrectReturnscustomException()
@@ -23,7 +23,6 @@ namespace Tests
             StateCensusAnalyser matches = new StateCensusAnalyser();
             Assert.AreEqual("File Contains Invalid Records", matches.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
         }
-        
         [Test]
         public void GiventheStateCensusCSV_FilewhenCorrectbutcsvheaderincorrectReturnsCustomException()
         {
@@ -34,7 +33,7 @@ namespace Tests
         public void GiventheStatesCodeWhenAnalyseShouldRecordNumberOfRecordmatches()
         {
             CSVStateCensus matches = new CSVStateCensus();
-            Assert.AreEqual("HAPPY", matches.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv"));
+            Assert.AreEqual("", matches.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv"));
         }
         [Test]
         public void Given_the_StateCode_CSV_File_incorrect_Returns_custom_Exception()
