@@ -61,12 +61,12 @@ namespace IndianStatesCensus
                     if (int.Parse(info[i].Population) < int.Parse(info[j].Population))
                     {
                         Swap(info, i, j);
+                        countStates++;
                     }
-                    countStates++;
                 }
             }
-            string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
-            //String str1 = countStates.ToString();
+            //string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
+            string str = countStates.ToString();
             return str;
         }
         /// <summary>
@@ -115,7 +115,8 @@ namespace IndianStatesCensus
                 }
             }
             string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
-            return str;
+            //return str;
+            return entries[index].State;
         }
         /// <summary>
         /// Sort in Larget to Smallest as per Total Area
@@ -139,7 +140,8 @@ namespace IndianStatesCensus
                 }
             }
             string str = JsonConvert.SerializeObject(entries, Formatting.Indented);
-            return str;
+            //return str;
+            return entries[1].State;
         }
         /// <summary>
         /// Sort in Larget to Smallest as per US Total Area

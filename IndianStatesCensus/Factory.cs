@@ -39,7 +39,6 @@ namespace IndianStatesCensus
                         AreaInSqKm = entries[2],
                         DensityPerSqKm = entries[3]
                     };
-
                     states.Add(newEntry);
                     count++;
                 }
@@ -148,8 +147,9 @@ namespace IndianStatesCensus
             }
 
             
-            return(sort.SortedInfoPopulationDensity(count, index, states));
+            //return(sort.SortedInfoPopulationDensity(count, index, states));
             //return (sort.SortedInfoTotalArea(count, index, states));
+            return (sort.SortedInfoPopulation(count, index, states));
             //return(sort.SortedInfo(count, index, states));
 
         }
