@@ -9,13 +9,12 @@ namespace IndianStatesCensus
          /// <param name="args"></param>
         static void Main(string[] args)
         {
-            StateCensusAnalyser states = new StateCensusAnalyser();
-            Console.WriteLine(states.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
-            //CSVStateCensus statescode = new CSVStateCensus();
-            //Console.WriteLine(statescode.CSVStatesCensus(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv"));
-            //US_CensusData US_states = new US_CensusData();
-            //Console.WriteLine(US_states.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\USCensusData.csv"));
-
+            //StateCensusAnalyser states = new StateCensusAnalyser();
+            //Console.WriteLine(states.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCensusData.csv"));
+            //StateCodeDAO statescode = new StateCodeDAO();
+            //Console.WriteLine(statescode.CSVStatesCode(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\StateCode.csv"));
+            US_CensusDataDAO US_states = new US_CensusDataDAO();
+            Console.WriteLine(US_states.StateCensusAnalyzer(@"C:\Users\The Daddy\source\repos\IndianStatesCensus\IndianStatesCensus\USCensusData.csv"));
         }
     }
     public class IndianStatesCensusException : Exception
